@@ -22,20 +22,16 @@ python3 -m http.server 8080
 
 ## 部署到 GitHub Pages
 
-全是静态文件、没有构建步骤，放 GitHub Pages 即可得到一个在线地址：
+仓库：<https://github.com/zhouhang95/WebWatermark>，全是静态文件、没有构建步骤。
+
+首次部署：仓库 Settings → Pages → Source 选「Deploy from a branch」，分支 `main`、目录 `/ (root)`，保存。
+约一分钟后线上地址为 <https://zhouhang95.github.io/WebWatermark/>。
+
+之后更新只需：
 
 ```sh
-cd WebWatermark
-git init
-git add .
-git commit -m "EasyWatermark Web"
-git branch -M main
-git remote add origin git@github.com:<用户名>/easywatermark-web.git
-git push -u origin main
+git add -A && git commit -m "说明这次改了什么" && git push
 ```
-
-仓库 Settings → Pages → Source 选「Deploy from a branch」，分支 `main`、目录 `/ (root)`，保存。
-约一分钟后访问 `https://<用户名>.github.io/easywatermark-web/`。
 
 - Pages 强制 HTTPS，属于安全上下文，File System Access API 与本地打开时行为一致，导出正常。
 - 免费账号的 Pages 要求仓库 public；本项目为 GPL-3.0，公开无碍。
